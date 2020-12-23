@@ -41,3 +41,14 @@ USEFUL CMD
 inxi -Fxzd
 lsusb
  
+GITHUB
+
+git config --global user.name "Your Name"
+git config --global user.email your@email-address.com
+git checkout -b <mycode>
+git fetch
+git diff
+git reset --hard
+git branch --delete --force <branch name>
+git add intro-python/git-basics/change_me.txt
+git commit -m "Git Commit - Done."
