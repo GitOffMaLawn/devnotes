@@ -47,6 +47,21 @@ def get_url(url):
 def list_network_devices():
     return get_url("network-device")
 
+def ip_to_id(ip):
+    return get_url("network-device/ip-address/%s" % ip)['response']['id']
+
+def get_modules(id):
+   return get_url("network-device/module?deviceId=%s" % id)
+
+def print_info(modules):
+    print("{0:30}{1:15}{2:25}{3:5}".format("Module Name","Serial Number","Part Number","Is Field Replaceable?"))
+    for module in modules['response']:
+        print("{moduleName:30}{serialNumber:15}{partNumber:25}{moduleType:5}".format(moduleName=module['name'],
+                                                           serialNumber=module['serialNumber'],
+                                                           partNumber=module['partNumber'],
+                                                           moduleType=module['isFieldReplaceable']))
+
+
 if __name__ == "__main__":
     response = list_network_devices()
     print("{0:42}{1:17}{2:12}{3:18}{4:12}{5:16}{6:15}".
