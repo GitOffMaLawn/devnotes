@@ -1,5 +1,14 @@
+import sys
+import json
 import requests
+import os
+from requests.auth import HTTPBasicAuth
+requests.packages.urllib3.disable_warnings()
 
+DNAC=os.environ.get('DNAC','sandboxdnac.cisco.com')
+DNAC_PORT=os.environ.get('DNAC_PORT',443)
+DNAC_USER=os.environ.get('DNAC_USER','devnetuser')
+DNAC_PASSWORD=os.environ.get('DNAC_PASSWORD','Cisco123!')
 
 def get_auth_token(controller_ip=DNAC, username=DNAC_USER, password=DNAC_PASSWORD):
     """Authenticates with controller and returns a token to be used in subsequent API invocations
@@ -43,12 +52,6 @@ if __name__ == "__main__":
     print("{0:42}{1:17}{2:12}{3:18}{4:12}{5:16}{6:15}".
         format("hostname","mgmt IP","serial",
         "platformId","SW Version","role","Uptime"))
-
-    print(f"{0:42}{1:17}{2:12}{3:18}{4:12}{5:16}{6:15}".
-        format("hostname","mgmt IP","serial",
-        "platformId","SW Version","role","Uptime"))
-
-
 
     for device in response['response']:
         uptime = "N/A" if device['upTime'] is None else device['upTime']
