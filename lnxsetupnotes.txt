@@ -36,4 +36,8 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
  Get-ExecutionPolicy -List
  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
  
+USEFUL CMD
+-system info
+inxi -Fxzd
+lsusb
  
