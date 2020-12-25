@@ -41,6 +41,16 @@ USEFUL CMD
 inxi -Fxzd
 lsusb
  
+FUN
+curl wttr.in
+curl wttr.in/<place>?format=1-9
+pip install speedtest-cli
+speedtest-cli --json
+neofetch
+
+
+
+
 GITHUB
 
 git config --global user.name "Your Name"
