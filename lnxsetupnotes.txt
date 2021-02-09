@@ -1,0 +1,64 @@
+sudo apt install curl
+sudo apt install libssl-dev
+sudo apt install build-essential
+sudo apt install git
+sudo apt install python3-virtualenv
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+
+???
+ sudo apt install snapd
+ sudo snap install atom --classic
+ ngrok
+ openconnect
+ postman
+ 
+ 
+ Docker
+ 
+ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ sudo apt update
+ sudo apt install docker-ce
+ 
+ sudo systemctl status docker
+ 
+ sudo usermod -aG docker $USER
+ 
+ X410 ???
+ 
+ POWERSHELL
+ Windows Terminal
+ Cascadia fonts TTF dynamic
+ Allow SCRIPTS as admin
+ Get-ExecutionPolicy -List
+ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+ 
+USEFUL CMD
+-system info
+inxi -Fxzd
+lsusb
+ 
+FUN
+curl wttr.in
+curl wttr.in/<place>?format=1-9
+pip install speedtest-cli
+speedtest-cli --json
+neofetch
+
+
+
+
+GITHUB
+
+git config --global user.name "Your Name"
+git config --global user.email your@email-address.com
+git checkout -b <mycode>
+git fetch
+git diff
+git reset --hard
+git branch --delete --force <branch name>
+git add intro-python/git-basics/change_me.txt
+git commit -m "Git Commit - Done."

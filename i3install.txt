@@ -1,0 +1,6 @@
+sudo apt install i3 i3status rofi feh nitrogen
+
+
+fonts-font-awesome
+ttf-ubuntu-font-family
+arandr
