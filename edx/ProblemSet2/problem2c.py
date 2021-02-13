@@ -15,15 +15,14 @@ Monthly unpaid balance = (Previous balance) - (Minimum fixed monthly payment)
 Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
 
 
-best so far 11/15
 """
 
 
 def calc_payoff(bal, month = 12, guessrun = 0.0):
     if month > 0:
-        mpguess = round((bal + (bal * annualInterestRate)) / month, -1)
+        mpguess = (bal + (bal * (annualInterestRate / 12))) / month
         guessrun = mpguess + guessrun
-        nbal = bal + (bal * annualInterestRate / 12) - mpguess
+        nbal = bal + (bal * (annualInterestRate / 12)) - mpguess
         return calc_payoff(nbal, month-1, guessrun)
     
     else:
@@ -48,7 +47,7 @@ print("Lowest Payment: ", calc_payoff(balance))
 print("Lowest Payment: 440 -- correct")
 
 print("Test Case 3:")
-balance = 3926
-annualInterestRate = 0.2
+balance = 4043
+annualInterestRate = 0.04
 print("Lowest Payment: ", calc_payoff(balance))
-print("Lowest Payment: 360 -- correct")
+print("Lowest Payment: 350 -- correct")
