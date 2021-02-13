@@ -6,71 +6,51 @@ in 12 months.
 
 These variables and values are provided:
 
-annualInterestRate
 balance
+annualInterestRate
 
+Calculations that may be needed
 Monthly interest rate = (Annual interest rate) / 12.0
 Monthly unpaid balance = (Previous balance) - (Minimum fixed monthly payment)
 Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
 
-	      Test Case 1:
-	      balance = 3329
-	      annualInterestRate = 0.2
 
-	      Result Your Code Should Generate:
-	      -------------------
-	      Lowest Payment: 310
-
-          Test Case 2:
-	      balance = 4773
-	      annualInterestRate = 0.2
-	      
-	      Result Your Code Should Generate:
-	      -------------------
-	      Lowest Payment: 440
-
-          Test Case 3:
-	      balance = 3926
-	      annualInterestRate = 0.2
-
-	      Result Your Code Should Generate:
-	      -------------------
-	      Lowest Payment: 360
 """
 
 
-def calculate_payoff(bal, month):
+
+def calc_payoff(bal, month = 12, guessrun = 0.0):
     if month > 0:
-        pay = monthlyPaymentRate * bal
-        nbal = float(bal) - pay
-        return calculate_balance((nbal + (annualInterestRate / 12) * nbal), month-1)
+        mpguess = (bal + (bal * annualInterestRate)) / month
+        guessrun = mpguess + guessrun
+        nbal = bal + (bal * annualInterestRate / 12) - mpguess
+        return calc_payoff(nbal, month-1, guessrun)
+		
     else:
-        return round(bal, 2)
+        return guessrun / 12
 
-balance = 100
-annualInterestRate = .20
-print("Remaining balance:", calculate_balance(balance, 12))
 
-balance = 42
+
+
+print("my test")
+balance = 500
+annualInterestRate = .2
+print("Lowest Payment: ", round(calc_payoff(balance)))
+
+print("Test Case 1")
+balance = 3329
 annualInterestRate = 0.2
-monthlyPaymentRate = 0.04
-print("Remaining balance: {}".format(calculate_balance(balance, 12)))
-print("Remaining balance: 31.38")
+print("Lowest Payment: ", round(calc_payoff(balance)))
+print("Lowest Payment: 310 -- correct")
 
-balance = 484
+print("Test Case 2:")
+balance = 4773
 annualInterestRate = 0.2
-monthlyPaymentRate = 0.04
-print("Remaining balance: {}".format(calculate_balance(balance, 12)))
-print("Remaining balance: 361.61")
+print("Lowest Payment: ", round(calc_payoff(balance)))
+print("Lowest Payment: 440 -- correct")
 
-balance = 445
-annualInterestRate = 0.22
-monthlyPaymentRate = 0.04
-print("Remaining balance: {}".format(calculate_balance(balance, 12)))
-print("Remaining balance: 339.07")
-
-balance = 226
-annualInterestRate = 0.15
-monthlyPaymentRate = 0.04
-print("Remaining balance: {}".format(calculate_balance(balance, 12)))
-print("Remaining balance: 160.73")
+print("Test Case 3:")
+balance = 3926
+annualInterestRate = 0.2
+print("Lowest Payment: ", round(calc_payoff(balance)))
+print("Lowest Payment: 360 -- correct")
