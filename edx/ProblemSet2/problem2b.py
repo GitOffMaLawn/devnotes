@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 
 def calc_payoff(bal, month, mpguess, mpgavg=0.0):
     if month > 0:
