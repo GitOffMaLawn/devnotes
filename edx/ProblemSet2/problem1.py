@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Problem set1 project edX
 

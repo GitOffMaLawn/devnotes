@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+#!/usr/bin/env python3
+
+>>>>>>> 0856219e6e562931a769b69de121ec8c6992a3bb
 def calc_payoff(bal, month, mpguess, mpgavg=0.0):
     if month > 0:
         mpgavg = mpguess + mpgavg
