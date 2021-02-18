@@ -9,13 +9,13 @@ Also to proctice documentation inside of a Python script.
 
 from math import tan, pi
 
-def polysum(n, s):
+def polysum(number_sides, side_length):
     """
     Function
     --------
     'polysum' function will return the SUM of the area
     + perimiter ^ 2 for a polygon.
-    
+
     Parameters
     ----------
     n : INT
@@ -30,14 +30,12 @@ def polysum(n, s):
         4 decimal.
 
     """
-    area = n * (s ** 2) / (4 * tan(pi / n))
-    perimiter = n * s
-    sum = area + perimiter ** 2
-    return round(sum,4)
+    area = number_sides * (side_length ** 2) / (4 * tan(pi / number_sides))
+    perimiter = number_sides * side_length
+    sum_ap = area + perimiter ** 2
+    return round(sum_ap,4)
 
-"""
-Sample Output to test 'polysum' function.
-"""
+# Sample Output to test 'polysum' function.
 print(polysum(4, 20), "\n6800.0 -- correct")
 print(polysum(21, 88), "\n3684838.9356 -- correct")
 print(polysum(74, 28), "\n4634619.4522 -- correct")
