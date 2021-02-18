@@ -9,7 +9,7 @@
 
 import random
 
-WORDLIST_FILENAME = "/home/fernando/GitHub/gitoffmalawn/devnotes/edx/Unit3/problemset3/words.txt"
+WORDLIST_FILENAME = "words.txt"
 
 def loadWords():
     """
