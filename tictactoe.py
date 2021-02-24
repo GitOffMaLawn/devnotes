@@ -188,18 +188,26 @@ def test_winner(h_player):
 
 def start_game():
     pick = random_pick_turn()
+    count = 9
     while test_winner(pick) == False:
-        if len(board_spaces_dict) == 0:
-            print("IT'S A STALEMATE!")
-            break
-        elif pick == 0:
+        if pick == 0:
             # Human is 'O'
             computer_move(random.choice(list(board_spaces_dict)), x)
+            count -= 1
+            if count == 0:
+                print("IT'S A STALEMATE!")
+                break
             player_move(o)
+            count -= 1
         else:
             # Human is 'X'
             player_move(x)
+            count -= 1
+            if count == 0:
+                print("IT'S A STALEMATE!")
+                break
             computer_move(random.choice(list(board_spaces_dict)), o)
+            count -= 1
 
 
 start_game()
